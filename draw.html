@@ -228,7 +228,7 @@
   <div class="notice">
     <h3>📋 活动规则</h3>
     <p>1. 每人每月可抽奖 <b>3 次</b>，自然月重置；<b>100% 中奖</b>。</p>
-    <p>2. 奖品为面额 <b>5–1000 元</b> 的代金券，需消费达到券面标注金额方可抵扣。</p>
+    <p>2. 奖品为面额 <b>5–1000 元</b> 的代金券，具体参考使用说明抵扣。</p>
     <p>3. 代金券<b>不记名</b>，凭券二维码 / 16 位券码可转让，任何人均可持券到店使用。</p>
     <p>4. 每张券自抽中之日起 <b>90 天</b> 内有效，逾期自动作废。</p>
     <p>5. 到店时出示券二维码，由工作人员手机扫码核销后即可抵扣。</p>
@@ -2543,7 +2543,7 @@ var qrcode = function() {
 /* ================= 配置 ================= */
 var CONFIG = {
   /* 部署后请把 VERIFY_URL 改为正式核销页地址，例如 "https://your-domain.com/verify.html" */
-  VERIFY_URL: "https://sxwkqzs.github.io/choujiang/verify.html",
+  VERIFY_URL: "https://sxkqs.github.io/choujiang/verify.html",
   MAX_DRAWS: 3,          // 每人每月抽奖次数
   VALID_DAYS: 90,        // 券有效期（天）
   WHEEL_SPINS: 5         // 轮盘最少转圈数
@@ -2667,6 +2667,7 @@ function voucherHTML(v, code){
       '<div aria-hidden="true">'+makeQR(qrText)+'</div>' +
       '<div class="misc">' +
         '<div>📱 出示此码到店核销</div>' +
+        '<div class="ln">💳 消费满 <b>¥'+v.threshold+'</b> 可抵 <b>¥'+v.face+'</b></div>' +
         '<div class="ln">⏳ 有效期至 <b>'+eff+'</b></div>' +
       '</div>' +
     '</div>' +
