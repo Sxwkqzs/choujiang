@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="refresh" content="0; url=draw.html">
+<meta name="design-suite-artifact-kind" content="website">
+<meta name="design-suite-delivery-adapter" content="static-export">
+<meta name="design-suite-delivery-format" content="single-html">
+<meta name="design-suite-asset-policy" content="inline-base64">
+<meta name="design-suite-export-mode" content="single-file">
+<title>正在跳转… · 抽奖看牙 · 苏小卫口腔诊所</title>
+<style>
+  :root{--bg-1:#FFF6EA;--bg-2:#FFE9D6;--bg-3:#FFD9BE;--primary:#E8542F;--primary-dark:#C63D1D;--ink:#5A3A26;--ink-2:#8A6A50}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Noto Sans CJK SC",sans-serif;
+    color:var(--ink);
+    background:radial-gradient(1200px 500px at 50% -80px, #FFE3BE 0%, rgba(255,227,190,0) 60%), linear-gradient(165deg, var(--bg-1) 0%, var(--bg-2) 55%, var(--bg-3) 100%);
+    display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;
+    text-align:center;padding:20px;
+  }
+  .ring{width:40px;height:40px;border:3px solid #FDE7DC;border-top-color:var(--primary);border-radius:50%;animation:spin .8s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  h1{font-size:18px;font-weight:800;color:var(--primary-dark);letter-spacing:2px}
+  p{font-size:13px;color:var(--ink-2);line-height:1.6}
+  a{color:var(--primary);text-decoration:none;font-weight:700}
+  a:hover{text-decoration:underline}
+</style>
+</head>
+<body>
+  <div class="ring" aria-hidden="true"></div>
+  <h1>正在进入抽奖看牙活动</h1>
+  <p>苏小卫口腔诊所 · 每月 3 次 · 100% 中奖<br>若页面未自动跳转，请 <a href="draw.html">点击这里</a></p>
+  <script>window.location.replace("draw.html")</script>
+</body>
+</html>
