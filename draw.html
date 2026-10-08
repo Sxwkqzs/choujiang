@@ -2565,8 +2565,22 @@ var VOUCHERS = [
   {id:11, face:1000,threshold:6000, prob:2.77}
 ];
 
-/* ================= 状态（会话内存） ================= */
-var state = { month: monthKey(), used: 0 };
+/* ================= 状态（优先 localStorage，回退内存） ================= */
+var LS_KEY = "lottery_state_v1";
+function loadState(){
+  try{
+    var raw = localStorage.getItem(LS_KEY);
+    if(raw){
+      var s = JSON.parse(raw);
+      if(s && s.month === monthKey()) return s;
+    }
+  }catch(e){}
+  return {month: monthKey(), used: 0};
+}
+function saveState(){
+  try{ localStorage.setItem(LS_KEY, JSON.stringify(state)); }catch(e){}
+}
+var state = loadState();
 function monthKey(){
   var d = new Date();
   return d.getFullYear() + "-" + String(d.getMonth()+1).padStart(2,"0");
@@ -2693,6 +2707,7 @@ function refreshQuota(){
   btn.textContent = remain() > 0 ? "开始抽奖" : "本月已抽完";
   hint.textContent = remain() > 0 ? "点击按钮，每次必中 · 每人每月 3 次" : "本月次数已用完，下月 1 日自动重置";
   card.classList.remove("show");
+  saveState();
 }
 
 btn.addEventListener("click", function(){
@@ -2712,6 +2727,7 @@ btn.addEventListener("click", function(){
     spinning = false;
     document.querySelector(".stage").classList.remove("drawing");
     state.used += 1;
+    saveState();
     var code = genCode(prize);
     card.innerHTML = voucherHTML(prize, code);
     refreshQuota();
